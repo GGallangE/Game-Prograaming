@@ -12,13 +12,13 @@
           
                         
  * **bulma의 [hero](https://bulma.io/documentation/layout/hero/)**
-    ```html
+```html
          <div class="hero"> 
- ```            
+```            
  
  
- * **foundation            
-  ```html         
+* **foundation           
+```html         
                      h1 {
   font-size: calc(1.375rem + 1.5vw);
   color:#3cd3d8;
