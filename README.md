@@ -12,4 +12,4 @@
 
 🙌 [수정된 코드](https://github.com/GGallangE/Game-Prograaming/blob/main/1012/test.cpp)
 
-🙌 [발표 자료](https://nbviewer.org/github/jmlee119/GameProgramming/blob/main/%EC%A4%91%EA%B0%84%EA%B3%BC%EC%A0%9C/%EA%B2%9C%ED%94%84%EA%B3%BC%EC%A0%9C.pdf)
+🙌 [발표 자료](https://github.com/GGallangE/Game-Prograaming/blob/main/1012/%EC%B2%AD%EA%B8%B0%EB%B0%B1%EA%B8%B0.pptx)
