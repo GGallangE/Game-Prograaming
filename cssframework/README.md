@@ -8,13 +8,15 @@
 ```html
 <img style = "width:300px; height:300px;" class = "rounded float-end" src="images/profile.jpg" alt="홍길동의 얼굴 사진" />
             <table class = 'table table is-striped'>
-
+```
           
                         
  * **bulma의 [hero](https://bulma.io/documentation/layout/hero/)**
     ```html
          <div class="hero"> 
-                
+ ```            
+ 
+ 
  * **foundation            
   ```html         
                      h1 {
@@ -22,3 +24,4 @@
   color:#3cd3d8;
   background-color: hsl(61, 76%, 55%);
   text-align: center;}
+```
