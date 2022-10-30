@@ -3,7 +3,7 @@
 
 
 
-### [중간과제] (https://github.com/GGallangE/Game-Prograaming/tree/main/1012)
+### [콘솔 게임 수정 과제](https://github.com/GGallangE/Game-Prograaming/tree/main/1012)
 
 
 
