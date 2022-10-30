@@ -17,7 +17,7 @@
 ```            
  
  
-* **foundation의 [h1] & [label](https://get.foundation/sites/docs-v5/components/labels.html)        **
+* **foundation의 [h1] & [label](https://get.foundation/sites/docs-v5/components/labels.html)***
 ```html         
                      h1 {
   font-size: calc(1.375rem + 1.5vw);
