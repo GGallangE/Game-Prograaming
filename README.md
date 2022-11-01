@@ -6,5 +6,5 @@
 ### [게임 만들기](https://github.com/GGallangE/Game-Prograaming/tree/main/1012)
 
 
-### [css framework](https://github.com/GGallangE/Game-Prograaming/tree/main/cssframework)
+### [css framework](https://github.com/GGallangE/Game-Prograaming/tree/main/docs)
 
