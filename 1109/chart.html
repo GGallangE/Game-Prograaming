@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    </head>
+
+<body>
+    <h3>대한민국 흡연율</h3>
+<canvas id="myChart" style="width:130%;max-width:500px"></canvas>
+
+<script>
+var xyValues = [
+  {x:10, y:15},
+  {x:20, y:22},
+  {x:30, y:24},
+  {x:40, y:26},
+  {x:50, y:19},
+  {x:60, y:15},
+  {x:70, y:10},
+  {x:80, y:8},
+  {x:90, y:7}
+];
+
+new Chart("myChart", {
+  type: "scatter",
+  data: {
+    datasets: [{
+      pointRadius: 4,
+      pointBackgroundColor: "rgb(0,0,255)",
+      data: xyValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      xAxes: [{ticks: {min: 10, max:100}}],
+      yAxes: [{ticks: {min: 5, max:30}}],
+    }
+  }
+});
+</script>
+<p>연령은 10대에서 90대 사이, 수치는 5~30% 사이로 나타내어 보았습니다.</p>    
+
+<hr>
+<h3>전 세계 출산율</h3>
+
+<canvas id="myChart3" style="width:100%;max-width:600px"></canvas>
+
+<script>
+var xValues1 = ["니제르(1등)", "중국", "미국", "일본", "대한민국(최저)"];
+var yValues1 = [670,170 , 163, 134, 84];
+var barColors1 = ["red", "green","blue","orange","brown"];
+
+new Chart("myChart3", {
+  type: "bar",
+  data: {
+    labels: xValues1,
+    datasets: [{
+      backgroundColor: barColors1,
+      data: yValues1
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "출산율 2022"
+    }
+  }
+});
+</script>
+<p>전 세계 출산율을 1000명 기준으로 나타내 보았습니다.
+    니제르가 670명을 출산할 때 우리나라는 84명을 출산합니다.
+</p>
+<hr>
+<h3>우리나라 매운라면 매운 정도</h3>
+<canvas id="myChart4" style="width:100%;max-width:600px"></canvas>
+
+<script>
+var xValues2 = ["신라면", "진라면(매운맛)","짜파게티", "불닭 볶음면",  "팔도 비빔변"];
+var yValues2 = [16, 10, 9, 5, 3];
+var barColors2 = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart4", {
+  type: "pie",
+  data: {
+    labels: xValues2,
+    datasets: [{
+      backgroundColor: barColors2,
+      data: yValues2
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "우리나라 라면 판매순위"
+    }
+  }
+});
+</script>
+</body>
+</html>
