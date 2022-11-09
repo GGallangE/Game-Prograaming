@@ -9,3 +9,4 @@
 
 
 ## 차트 보기
+[netlify](https://cute-strudel-8b5440.netlify.app)
