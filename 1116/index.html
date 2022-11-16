@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Number Baseball</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: rgb(198, 149, 79);
+    }
+/* 보통 바디태그에 주고나서 a태그에 색상을 주는게 기본이다!!! (상속이 안되니까 별도로) */
+a {
+    color : #222;
+    text-decoration: none;
+}
+.dropdown {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+.dropdown-btn {
+    width: 100%;
+    padding : 10px;
+    font-size: 18px;
+    background-color: rgb(120, 129, 132);
+    color : #fff;
+    border: none;
+    cursor: pointer;
+}
+.dropdown-btn-role {
+    width: 100%;
+    padding : 10px;
+    font-size: 18px;
+    background-color: rgb(232, 152, 23);
+    color : #fff;
+    border: none;
+    cursor: pointer;
+}
+.dropdown-submenu{
+    width:100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.192);
+    display: none;
+}
+.dropdown-submenu a {
+    display: block;
+    padding: 7px;
+    text-align: center;
+}
+.dropdown-submenu a:hover{
+    background-color: #eee;
+}
+.dropdown:hover .dropdown-submenu {
+    display: block;
+}
+input {
+    width: 200px; 
+    padding: .8em .5em;
+    border: 1px solid #999;color: seagreen;
+    background-color: rgb(218, 250, 222);
+    border-color: rgb(80, 116, 95)
+}
+button {
+    border: 1px solid rgb(0, 0, 0); 
+    background-color: rgb(255, 245, 166);
+    color: rgb(182, 22, 91);
+    font-size: 25px;
+
+}
+
+</style>
+<script type="text/javascript">
+    var getNum = new Array();
+    var numLength,num;
+    var check = true;
+
+    window.onload = function() {
+        numLength = document.getElementById("select").value;
+        setNumber();
+    }
+
+    //get random numbers
+    //numbers must not be same each other
+    function setNumber() {
+        var random;
+        getNum.splice(0, getNum.length);
+        while (getNum.length < numLength) {
+            random = Math.floor(Math.random() * 9) + 1;
+
+            for (var i = 0; i < getNum.length; i++) {
+                if (getNum[i] == random) {
+                    check = false;
+                    break;
+                }
+            }
+
+            if (check) {
+                getNum.push(random);
+            }
+            check = true;
+        }
+    }
+
+    
+
+    //check user number
+    function checkUserText() {
+        
+        var audio = document.getElementById("checkUserTextad");
+        audio.play();
+        var userText = document.getElementById("userText").value;
+        var setText = document.getElementById("textArea");
+        //check if userText is number
+        for (var i = 0; i < userText.length; i++) {
+            if (userText.charCodeAt(i) < 48 || userText.charCodeAt(i) > 57
+                    || userText.length != numLength) {
+                setText.innerHTML += "Type only " + numLength + " numbers!\n";
+                check = false;
+                break;
+            }
+        }
+
+        //check strike,ball,out
+        var strike, ball;
+        var cnt =10;
+        
+        if (check) {
+            strike = 0;
+            ball = 0;
+            
+            for (var i = 0; i < getNum.length; i++) {
+                for (var k = 0; k < userText.length; k++) {
+                    if ((getNum[i] == userText[k]) && (i == k)) {
+                        strike++;
+                    } else if ((getNum[i] == userText[k]) && (i != k)) {
+                        ball++;
+                    }
+                }
+            }
+
+            if (strike == 0 && ball == 0) {
+                setText.innerHTML += userText + " : ";
+                setText.innerHTML += "out!\n";
+                
+            } else if (strike == numLength) {   
+                setText.innerHTML += numLength
+                        + "strike! you won the game!!!\nclick restart to play again\n";
+                        alert('축하합니다!!! 맞추셨습니다.    ');
+            } else {
+                setText.innerHTML += userText + " : ";
+                setText.innerHTML += (strike + " strike, " + ball + " ball!\n");
+            }
+           
+        }
+        check = true;
+
+    }
+
+    //change difficulty
+    
+    function difficulty() {
+        numLength = document.getElementById("select").value;
+        reload_2();
+    }
+
+    //restart game
+    function reload_2() {
+        confirm('난이도를 조정합니다 맞으신가요??');
+        setNumber();
+        document.getElementById("textArea").innerHTML = "";
+        
+    }
+    function reload() {
+        confirm('다시 시작 하실건가요?');
+        setNumber();
+        document.getElementById("textArea").innerHTML = "";
+    }
+</script>
+
+</head>
+<body>
+    <audio controls src="치고달려라 2010 (feat. 천하무적 야구단).mp4"
+     type="audio/mpeg"></audio>
+    <h2 align="center" style="color: rgb(41, 54, 172); font-size: 60px">
+        숫자 야구 게임(number-baseball game)</h2>
+    <div class="dropdown">
+        <button class="dropdown-btn">게임 방법</button>
+        <div class="dropdown-submenu">
+            <p>난이도는 총 4가지로 구성되어 있습니다.</p>
+            <p>3,4,5,6으로 있으며 선택후 그에 맞는 숫자야구 게임을 하면 됩니다.</p>
+            <p>중복으로 숫자는 입력하면 안됩니다.</p>
+            <a href="https://www.youtube.com/watch?v=SIa7KTpyagQ">
+                숫자야구 영상(youtube)
+            </a>
+        </div>
+    </div> 
+    <hr>
+    <div class="dropdown">
+        <button class="dropdown-btn-role">게임 규칙</button>
+        <div class="dropdown-submenu">
+            <p>중복되는 수는 입력하면 안됩니다.</p>
+            <p>숫자만 포함되어있으면 ball 위치까지 같으면 strike로 뜹니다.</p>
+            <p>out은 입력한 숫자가 정답에 하나도 들어있지 않다는 뜻입니다.</p>    
+            <p>모두 정확히 맞추면 homerun문구가 뜹니다.</p>
+        </div>
+    </div> 
+      <hr>
+      <div style="width:200px; height: 200px; text-align: center; line-height: auto; margin:0 auto;">
+        <label for="userText"
+        style="background-color: rgb(235, 21, 131);
+        font-size:20px">숫자를 입력해 주세요 </label>
+        <input id="userText" type="text">
+        <br />
+        
+        <button id="ch" value="PLAY" onclick="checkUserText()">check</button>
+        <audio id="checkUserTextad" src="check.mp3"></audio>
+        <button id="re" onclick="reload()">restart</button>
+        <input type="button" value="게임 종료" onClick="window.close()">
+        <p></p>
+        난이도 선택 :
+        <select id="select" onchange="difficulty()">
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        <br />
+        <textarea cols="30" id="textArea" readonly="readonly" rows="20"
+            style="overflow-y: scroll;"></textarea>
+      </div>
+    
+</body>
+</html>
